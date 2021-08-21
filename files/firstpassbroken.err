@@ -1,0 +1,18 @@
+Syntax error on line 2: vall label pointed to an external label cant be assigned as an entry for this file
+Syntax error on line 3: bgt is a reserved key
+Syntax error on line 3: Illegal comma after instruction
+Syntax error on line 3: Missing comma
+Syntax error on line 6: instruction jm doesn't exist
+Syntax error on line 7: externous label
+Syntax error on line 7: externous operands/data
+Syntax error on line 8: instruction bg doesn't exist
+Syntax error on line 10: Illegal comma after instruction
+Syntax error on line 10: not enough operands
+Syntax error on line 11: $50 register value is out of range
+Syntax error on line 11: not enough operands
+Syntax error on line 15: LE is an external label and cant be declared in the same file
+Syntax error on line 15: instruction st doesn't exist
+Syntax error on line 16: aBcd" string missing quotation marks
+Syntax error on line 17: Missing comma
+Syntax error on line 17: 27056 is out of 8bit range
+Syntax error on line 20: K label is already declared in the file cant be used as an external

@@ -79,9 +79,6 @@ do{                                                                 	\
 		PRINT_BITS(dest);												\
 }			                                                          	
 
-#define PRNT_FILE(file){\
-	\
-}
 typedef enum Type{
 	none,
 	R_instruction,

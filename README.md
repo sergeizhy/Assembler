@@ -5,7 +5,7 @@
 
 Brief explanation
 
-- Project was builed to assemble .as files for an invented 16bit machine with a custom set of commands given
+- Project was built to assemble .as files for an invented 16bit machine with a custom set of commands given
 - File handler creates a struct with the whole file in it
   - while creating the file 'File_descriptor' errors will be checked an unnecessary delimiters will be trimmed 
 - First pass does all the heavy lifting maintaining a hashtable with all the required labels to be later processed by the second pass

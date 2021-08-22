@@ -28,8 +28,11 @@ void FREE_FILE(File_descriptor *fd)
 	fd->size = 0;
 }
 
-boolean instructions_ht(Buckets *instructions)
-{
+/**
+ * create hashtable with all the necessary attributes and data
+ * 
+ */
+boolean instructions_ht(Buckets *instructions){
 	size_t index;
 
 	Instructions *_t_instructions = NULL;
@@ -65,7 +68,7 @@ boolean instructions_ht(Buckets *instructions)
 /**
  * create a 'File descriptor' and read file 
  * - clean any unnecessary delimiters
- * 
+ * - prepare the file for the first pass
  */
 boolean parse_file(File_descriptor *file, FILE *fp)
 {
@@ -173,8 +176,11 @@ boolean assembler(char **argv, int argc){
 		asm_first_pass(&file, &symbols, instructions, &dc, &ic, &undefined);
 		if (asm_second_pass(&undefined, &symbols, argv[argc]) && objdump(&ic, &dc, argv[argc]))
 			printf("\t\tFile assembled successfully\n\n");
-		else
+		else{
 		    fprintf(stderr, "Errors were detected in the first pass aborting, please refer to %s%s\n\n", argv[argc], ".err");
+			rewind(err);
+			printf("%s",err->_IO_read_ptr);
+		}
 
 		HT_FREE(&symbols);
 		FREE_FILE(&file);

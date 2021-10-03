@@ -29,54 +29,54 @@ typedef unsigned int uint;
 typedef enum boolean{FALSE,TRUE}boolean;
 
 
-#define OPEN_FILE(file,mode,fp){										\
-	fp = fopen((file),mode);											\
-	if(fp == NULL){														\
-		fprintf(stderr, "File error: %s failed to open\n", file);		\
-		perror(NULL);													\
-		exit(EXIT_FAILURE);												\
-	}																	\
-	free(file);															\
+#define OPEN_FILE(file,mode,fp){						\
+	fp = fopen((file),mode);						\
+	if(fp == NULL){								\
+		fprintf(stderr, "File error: %s failed to open\n", file);	\
+		perror(NULL);							\
+		exit(EXIT_FAILURE);						\
+	}									\
+	free(file);								\
 }	
 
-#define CLOSE_FILE(file){												\
-	if(file != NULL){													\
-		fclose(file);													\
-		file = NULL;													\
-	}																	\
+#define CLOSE_FILE(file){						\
+	if(file != NULL){						\
+		fclose(file);						\
+		file = NULL;						\
+	}								\
 }																		
 
 #define SAFE_ALLOC(ptr,alloc)                                       	\
 do{                                                                 	\
-    void *_n_ptr = NULL;												\
+    void *_n_ptr = NULL;						\
     	_n_ptr = alloc;                                                	\
     	if(_n_ptr == NULL){                                             \
-        	fprintf(err, "FATAL: Failed to allocate memory\n");      	\
-        	exit(EXIT_FAILURE);                                         \
+        	fprintf(err, "FATAL: Failed to allocate memory\n");     \
+        	exit(EXIT_FAILURE);                                     \
     	}else                                                           \
-        	ptr = _n_ptr;                                               \
+        	ptr = _n_ptr;                                           \
 }while(0);                                                          	
 
-#define FREE(ptr){														\
-	if(ptr != NULL){													\
-		free(ptr);														\
-		ptr = NULL;														\
-	}																	\
+#define FREE(ptr){							\
+	if(ptr != NULL){						\
+		free(ptr);						\
+		ptr = NULL;						\
+	}								\
 }
-#define PRINT_BITS(number){												\
-	uint size = sizeof(uint);											\
-    int i;																\
-    for (i = size * 8 - 1; i >= 0; i--)									\
-        printf("%u", (number >> i) & 1);								\
-    printf("\n");														\
+#define PRINT_BITS(number){						\
+	uint size = sizeof(uint);					\
+    int i;								\
+    for (i = size * 8 - 1; i >= 0; i--)					\
+        printf("%u", (number >> i) & 1);				\
+    printf("\n");							\
 }
 
-#define WRITE_BITS(dest,src,src_size,dest_pos){							\
+#define WRITE_BITS(dest,src,src_size,dest_pos){				\
     uint32_t mask = 0xFFFFFFFF;                                     	\
     (src) &= (mask >> ((sizeof(uint32_t) * 8) - src_size));         	\
-    (dest) |= (src) << (dest_pos);             		                	\
-	if DEBUG_U															\
-		PRINT_BITS(dest);												\
+    (dest) |= (src) << (dest_pos);             		                \
+	if DEBUG_U							\
+		PRINT_BITS(dest);					\
 }			                                                          	
 
 typedef enum Type{

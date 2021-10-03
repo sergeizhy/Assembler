@@ -1,4 +1,4 @@
-#Assembler
+# Assembler
 
 * Files to be assembled are located in ./files/ under .as extention
 * Assembled project path is located in ./out/bin/asm

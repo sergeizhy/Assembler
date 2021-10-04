@@ -3,17 +3,17 @@
 #include "headers/asm_second_pass.h"
 #include "headers/objdump.h"
 
-#define CONTAINER_FREE(container)                      \
-	{                                                  \
-		container.curr_pos = 0;                        \
-		while (container.curr_pos < container.size)    \
-		{                                              \
-			FREE(container.table[container.curr_pos]); \
-			container.curr_pos++;                      \
-		}                                              \
-		FREE(container.table);                         \
-		container.curr_pos = 0;                        \
-		container.size = 0;                            \
+#define CONTAINER_FREE(container)                      			\
+	{                                                  		\
+		container.curr_pos = 0;                        		\
+		while (container.curr_pos < container.size)    		\
+		{                                              		\
+			FREE(container.table[container.curr_pos]); 	\
+			container.curr_pos++;                      	\
+		}                                              		\
+		FREE(container.table);                         		\
+		container.curr_pos = 0;                        		\
+		container.size = 0;                            		\
 	}
 
 void FREE_FILE(File_descriptor *fd)
